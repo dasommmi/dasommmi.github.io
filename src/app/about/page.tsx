@@ -1,5 +1,8 @@
 export default function About() {
   return (
-    <div>About</div>
+    <section>
+      <h3>About</h3>
+      <div>내용</div>
+    </section>
   )
 }
