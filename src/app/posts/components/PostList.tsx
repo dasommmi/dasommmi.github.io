@@ -7,7 +7,9 @@ export default async function PostList() {
 
   return (
     <ul className="flex flex-wrap justify-start gap-6">
-      {posts.map((post: Post) => <PostListElement key={post.slug} post={post} />)}
+      {posts.map((post: Post) => (
+        <PostListElement key={post.slug} post={post} />
+      ))}
     </ul>
   )
 }
