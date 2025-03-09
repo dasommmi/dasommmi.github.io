@@ -1,5 +1,6 @@
 {
   "name": "my-blog",
+  "homepage": "https://dasommmi.github.io",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -26,6 +27,7 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^9",
     "eslint-config-next": "15.2.0",
+    "gh-pages": "^6.3.0",
     "gray-matter": "^4.0.3",
     "postcss": "^8.5.3",
     "prettier": "^3.5.2",

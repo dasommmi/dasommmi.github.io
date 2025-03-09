@@ -21,8 +21,9 @@ export default function PostListElement({ post }: { post: Post }) {
           <p className="w-full text-sm text-gray-800">{formattedDate(metadata.date)}</p>
         </div>
         <div className="m-auto">
-          <img src={metadata.thumbnailUrl} alt={metadata.title} className="h-20 w-20 object-cover" />
+          {/*<img src={metadata.thumbnailUrl} alt={metadata.title} className="h-20 w-20 object-cover" />*/}
         </div>
+        <div>{post.content}</div>
       </li>
     </Link>
   )
