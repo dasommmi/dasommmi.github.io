@@ -1,12 +1,9 @@
-'use client'
+import MDX from './Mdx'
 
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
-import MdxComponents from './MdxComponents'
-
-export default function PostBody({ mdxSource }: { mdxSource: MDXRemoteSerializeResult }) {
+export default function PostBody({ content }: { content: string }) {
   return (
     <article className="flex w-full flex-wrap">
-      <MDXRemote {...mdxSource} components={MdxComponents} />
+      <MDX content={content} />
     </article>
   )
 }
