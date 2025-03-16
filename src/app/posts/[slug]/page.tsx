@@ -1,28 +1,25 @@
-import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { Post } from '@/types/types'
-import { getPostsByCategory, serializeMDXContent } from '@/utils/mdx'
+import { getPostsByCategory } from '@/utils/mdx'
 import NotFound from '@/app/components/NotFound'
 import PostHeader from '@/app/posts/components/PostHeader'
-import PostBody from '@/app/posts/components/PostBody'
+import PostBody from '../components/PostBody'
 
-export const generateStaticParams = async (): Promise<{ params: { slug: string } }[]> => {
+export async function generateStaticParams() {
   const posts: Post[] = await getPostsByCategory()
-  return posts.map(({ slug }: Post) => ({ params: { slug } }))
+  return posts.map(({ slug }: Post) => ({ slug }))
 }
 
 export default async function PostDetail({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const posts: Post[] = await getPostsByCategory()
-  const post: Post | undefined = posts.find((post: Post) => slug === post.slug)
+  const post = posts.find((post: Post) => slug === post.slug)
 
   if (!post) return <NotFound />
 
-  const mdxSource: MDXRemoteSerializeResult = await serializeMDXContent(post.content)
-
   return (
-    <section>
+    <section className="flex h-full w-full flex-wrap rounded-lg bg-gray-200 p-5">
       <PostHeader metadata={post.metadata} />
-      <PostBody mdxSource={mdxSource} />
+      <PostBody content={post.content} />
     </section>
   )
 }

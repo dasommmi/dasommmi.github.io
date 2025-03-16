@@ -1,8 +1,6 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { BASE_PATH } from '@/constants/config'
 import { Post, PostMetadata } from '@/types/types'
 
@@ -25,13 +23,4 @@ const generatePost = async (file: string, categoryPath: string): Promise<Post> =
 export const getSortedListByDate = async (): Promise<Post[]> => {
   const posts: Post[] = await getPostsByCategory()
   return posts.sort((a: Post, b: Post) => (a.metadata.date > b.metadata.date ? -1 : 1))
-}
-
-export const serializeMDXContent = async (content: string): Promise<MDXRemoteSerializeResult> => {
-  return await serialize(content, {
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [],
-    },
-  })
 }

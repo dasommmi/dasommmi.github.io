@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import './globals.css'
+import '@/app/style/globals.css'
 import Header from '@/app/components/Header'
 import Footer from '@/app/components/Footer'
 import Content from '@/app/components/Content'
@@ -18,14 +18,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'My Blog',
-  description: 'Sandy\'s Blog',
+  description: "Sandy's Blog",
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
