@@ -10,8 +10,8 @@ export const generateStaticParams = async (): Promise<{ params: { slug: string }
   return posts.map(({ slug }: Post) => ({ params: { slug } }))
 }
 
-export default async function PostDetail({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
+export default async function PostDetail({ params }: { params: { slug: string } }) {
+  const { slug } = params
   const posts: Post[] = await getPostsByCategory()
   const post: Post | undefined = posts.find((post: Post) => slug === post.slug)
 
