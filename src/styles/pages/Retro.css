@@ -1,0 +1,42 @@
+/* Retro.css – Activity와 동일한 구조로 재사용 가능 */
+.retro__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.retro__card {
+  padding: 22px 24px;
+}
+.retro__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.retro__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.retro__date {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.retro__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 10px 0;
+}
+.retro__preview {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-top: 6px;
+}
+.retro__empty {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 20px;
+}

@@ -1,0 +1,42 @@
+/* Activity.css */
+.activity__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.activity__card {
+  padding: 22px 24px;
+}
+.activity__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.activity__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.activity__date {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.activity__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 10px 0;
+}
+.activity__preview {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-top: 6px;
+}
+.activity__empty {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 20px;
+}

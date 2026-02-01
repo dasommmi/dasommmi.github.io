@@ -1,4 +1,10 @@
-_site/
+# ── 빌드 출력 & 모듈 ──
+node_modules/
+dist/
+
+# ── macOS & IDE ──
 .DS_Store
-Gemfile.lock
 .idea/
+
+yarn-error.log
+*.iml

@@ -1,0 +1,175 @@
+/* ============================================================
+   ComicSlideContainer.css
+   만화형 콘텐츠 레이아웃 – 웹 (세로 카드) / 모바일 (가로 스와이프)
+   ============================================================ */
+
+/* ── 컨테이너 공통 ── */
+.comic-container {
+  margin: 32px 0;
+}
+
+/* ── 웹/모바일 분기 ── */
+.comic-container__web    { display: block; }
+.comic-container__mobile { display: none; }
+
+@media (max-width: 767px) {
+  .comic-container__web    { display: none; }
+  .comic-container__mobile { display: block; }
+}
+
+/* ── 카드 공통 ── */
+.comic-card {
+  --comic-accent: #4E68D1;
+
+  position: relative;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+.comic-card:hover {
+  border-color: var(--comic-accent);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── 컷 번호 배지 ── */
+.comic-card__num {
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--comic-accent);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 20px;
+  z-index: 1;
+  letter-spacing: 0.3px;
+}
+
+/* ── "끝" 배지 ── */
+.comic-card__end {
+  display: inline-block;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: var(--comic-accent);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+/* ── 이미지 영역 ── */
+.comic-card__img-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* 정사각형 */
+  overflow: hidden;
+  background: var(--bg-input);
+}
+.comic-card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── 텍스트 영역 ── */
+.comic-card__content {
+  padding: 16px 18px 20px;
+}
+.comic-card__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--comic-accent);
+  margin-bottom: 6px;
+}
+.comic-card__body {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ════════════════════════════════════════════════
+   웹 레이아웃 – 세로 카드 나열 (만화 스트립 느낌)
+   ════════════════════════════════════════════════ */
+.comic-container__web {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.comic-container__web .comic-card {
+  /* 카드 간 구분선 대신 카드끼리 붙고, border로 만화 칸 효과 */
+  border-radius: 0;
+  border-bottom: none;
+}
+.comic-container__web .comic-card:first-child {
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.comic-container__web .comic-card:last-child {
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  border-bottom: 2px solid var(--border);
+}
+
+/* ════════════════════════════════════════════════
+   모바일 레이아웃 – Swiper 가로 스와이프
+   ════════════════════════════════════════════════ */
+.comic-swiper {
+  width: 100%;
+  padding-bottom: 36px; /* pagination 점 여유 */
+}
+.comic-swiper .comic-card {
+  /* 모바일에서는 정사각형 카드 */
+  aspect-ratio: auto;
+  border-radius: var(--radius-lg);
+}
+
+/* Swiper pagination 점 스타일 재정의 */
+.comic-swiper .swiper-pagination-bullet {
+  background: var(--border);
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+}
+.comic-swiper .swiper-pagination-bullet-active {
+  background: #4E68D1;
+}
+
+/* ── 컷 카운터 (모바일) ── */
+.comic-container__counter {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* ── 단독 카드 (ComicSlide가 컨테이너 밖에 쓰이는 경우) ── */
+.comic-slide-single {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  margin: 12px 0;
+}
+.comic-slide-single__img {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+}
+.comic-slide-single__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #4E68D1;
+  margin-bottom: 4px;
+}
+.comic-slide-single__body {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}

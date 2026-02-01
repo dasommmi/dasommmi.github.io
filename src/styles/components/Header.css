@@ -1,0 +1,94 @@
+/* ============================================================
+   Header.css
+   ============================================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  gap: 16px;
+
+  background: var(--bg-header);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+/* ── 제목 ── */
+.header__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--brand);
+  text-decoration: none;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+  transition: color var(--transition);
+}
+.header__title:hover {
+  color: var(--brand-light);
+}
+
+/* ── 오른쪽 영역 ── */
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── 검색 ── */
+.header__search {
+  display: flex;
+  align-items: center;
+  background: var(--bg-input);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0 10px;
+  gap: 6px;
+  height: 34px;
+  transition: border-color var(--transition), background var(--transition);
+}
+.header__search:focus-within {
+  border-color: var(--brand);
+  background: var(--bg-card);
+}
+.header__search-icon {
+  font-size: 0.85rem;
+  color: var(--text-placeholder);
+}
+.header__search-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-family: inherit;
+  width: 140px;
+  transition: color var(--transition);
+}
+.header__search-input::placeholder {
+  color: var(--text-placeholder);
+}
+
+/* ── 아이콘 버튼 ── */
+.header__icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  color: var(--brand);
+  transition: background var(--transition), color var(--transition), transform 150ms ease;
+}
+.header__icon-btn:hover {
+  background: var(--brand-dim);
+  color: var(--brand-light);
+  transform: scale(1.08);
+}

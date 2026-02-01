@@ -1,0 +1,21 @@
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-input);
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), transform 150ms ease;
+}
+.theme-toggle:hover {
+  background: var(--brand-dim);
+  border-color: var(--brand);
+  transform: scale(1.08);
+}
+.theme-toggle__icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}

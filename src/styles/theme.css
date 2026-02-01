@@ -1,0 +1,58 @@
+/* ============================================================
+   theme.css – 라이트 / 다크 테마 변수 + 폰트
+   ============================================================ */
+
+/* ── G마켓 산스 폰트 로드 (CDN) ── */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
+
+/* ─────────────────────────────────
+   라이트 테마 (기본)
+   ───────────────────────────────── */
+:root {
+  --brand:          #4E68D1;
+  --brand-light:    #6b84e0;
+  --brand-dim:      rgba(78, 104, 209, 0.12);
+
+  --bg-base:        #f4f5f7;       /* 약간 회색빠진 흰색 */
+  --bg-card:        #ffffff;
+  --bg-header:      #ffffff;
+  --bg-sidebar:     #ffffff;
+  --bg-input:       #eef0f3;
+
+  --text-primary:   #1e2430;       /* 완전 검정 아닌 어두운 색 */
+  --text-secondary: #5a6370;
+  --text-placeholder:#8e95a0;
+
+  --border:         #e2e5ea;
+  --shadow-sm:      0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md:      0 4px 16px rgba(0, 0, 0, 0.08);
+
+  --radius-sm:      6px;
+  --radius-md:      10px;
+  --radius-lg:      14px;
+
+  --transition:     200ms ease;
+}
+
+/* ─────────────────────────────────
+   다크 테마
+   ───────────────────────────────── */
+[data-theme="dark"] {
+  --brand:          #4E68D1;       /* 강조색 동일 유지 */
+  --brand-light:    #7a96e8;
+  --brand-dim:      rgba(78, 104, 209, 0.18);
+
+  --bg-base:        #1a1d24;       /* 완전 검정 아닌 깊은 회청색 */
+  --bg-card:        #242830;
+  --bg-header:      #242830;
+  --bg-sidebar:     #242830;
+  --bg-input:       #2e3340;
+
+  --text-primary:   #e8eaed;       /* 완전 흰색 아닌 밝은 회색 */
+  --text-secondary: #a3aab5;
+  --text-placeholder:#606874;
+
+  --border:         #363c4a;
+  --shadow-sm:      0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md:      0 4px 16px rgba(0, 0, 0, 0.3);
+}

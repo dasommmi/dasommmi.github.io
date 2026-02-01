@@ -1,0 +1,45 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # 1. 체크아웃
+      - uses: actions/checkout@v4
+
+      # 2. Node.js 설정
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: yarn
+
+      - name: Clean yarn cache
+        run: yarn cache clean
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+
+      # 4. dist/ → Pages 아티팩트 업로드
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      # 5. Pages 배포
+      - uses: actions/deploy-pages@v4
+        id: deployment

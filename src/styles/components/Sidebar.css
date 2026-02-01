@@ -1,0 +1,60 @@
+/* ============================================================
+   Sidebar.css – 왼쪽 고정 사이드바
+   ============================================================ */
+.sidebar {
+  width: 200px;
+  min-width: 200px;
+  min-height: calc(100vh - 60px); /* header 제외 전체 높이 */
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: 24px 12px;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.sidebar__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background var(--transition), color var(--transition), transform 150ms ease;
+}
+.sidebar__link:hover {
+  background: var(--brand-dim);
+  color: var(--brand);
+  transform: translateX(3px);
+}
+
+/* 활성 상태 */
+.sidebar__link--active {
+  background: var(--brand-dim);
+  color: var(--brand);
+  font-weight: 700;
+  box-shadow: inset 3px 0 0 var(--brand);
+}
+.sidebar__link--active:hover {
+  transform: none;
+}
+
+.sidebar__icon {
+  font-size: 1.1rem;
+  line-height: 1;
+  width: 22px;
+  text-align: center;
+}
+
+.sidebar__label {
+  white-space: nowrap;
+}
