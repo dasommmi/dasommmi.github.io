@@ -1,0 +1,51 @@
+# ============================================================
+# Jekyll 설정 – GitHub Pages (dasommmi.github.io)
+# ============================================================
+
+# ── 기본 정보 ──
+title: dasommmi's blog
+description: "dasommmi의 개인 블로그"
+baseurl: ""          # github.io 루트 배포 → 빈 문자열
+url: "https://dasommmi.github.io"
+
+# ── 테마 ──
+theme: minima
+
+# ── 컬렉션 정의 ──
+# activities, retro는 커스텀 컬렉션 / posts는 Jekyll 기본 컬렉션
+collections:
+  activities:
+    output: true
+    permalink: /activities/:name/
+  retro:
+    output: true
+    permalink: /retro/:name/
+
+# ── 기본 레이아웃 지정 ──
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      collection: posts
+    values:
+      layout: post
+  - scope:
+      collection: activities
+    values:
+      layout: default
+  - scope:
+      collection: retro
+    values:
+      layout: default
+
+# ── Markdown 프로세서 ──
+markdown: kramdown
+
+# ── 빌드 시 무시할 파일 ──
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .git
