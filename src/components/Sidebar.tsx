@@ -8,9 +8,10 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { to: "/activity", label: "Activity", icon: "⚡" },
-  { to: "/retro",    label: "Retro",    icon: "🔄" },
-  { to: "/posts",    label: "Posts",    icon: "📝" },
+  { to: "/activity",   label: "Activity",   icon: "⚡" },
+  { to: "/retro",      label: "Retro",      icon: "🔄" },
+  { to: "/posts",      label: "Posts",      icon: "📝" },
+  { to: "/playground", label: "Playground", icon: "🕹️" },
 ];
 
 const Sidebar: React.FC = () => (

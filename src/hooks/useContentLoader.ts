@@ -26,19 +26,14 @@ const retroModules = import.meta.glob<{
   frontmatter?: ContentMeta;
 }>("/src/data/retro/**/*.mdx", { eager: false });
 
-// ── 경로 → slug 변환 ──────────────────────────────────────
 function pathToSlug(filePath: string): string {
-  // /src/data/posts/bond-insight/bond-insight.mdx → bond-insight
   const parts = filePath.replace(/^\/src\/data\/(posts|activity|retro)\//, "").split("/");
   if (parts.length >= 2) {
-    // 폴더명을 slug로 사용
     return parts[0];
   }
-  // 파일명에서 확장자 제거
   return parts[0].replace(/\.mdx$/, "");
 }
 
-// ── eager import로 frontmatter만 빠르게 수집 ──────────────
 const eagerPostMeta = import.meta.glob<{ frontmatter?: ContentMeta }>(
   "/src/data/posts/**/*.mdx",
   { eager: true }
@@ -71,7 +66,6 @@ function extractMeta(
       } as ContentMeta;
     })
     .sort((a, b) => {
-      // 날짜 내림차순 정렬
       if (b.date > a.date) return 1;
       if (b.date < a.date) return -1;
       return 0;
