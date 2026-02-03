@@ -12,6 +12,7 @@ const NAV_ITEMS: NavItem[] = [
   { to: "/retro",      label: "Retro",      icon: "🔄" },
   { to: "/posts",      label: "Posts",      icon: "📝" },
   { to: "/playground", label: "Playground", icon: "🕹️" },
+  { to: "/tags", label: "Tags", icon: "🏷️️" },
 ];
 
 const Sidebar: React.FC = () => (

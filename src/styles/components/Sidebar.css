@@ -42,7 +42,6 @@
   background: var(--brand-dim);
   color: var(--brand);
   font-weight: 700;
-  box-shadow: inset 3px 0 0 var(--brand);
 }
 .sidebar__link--active:hover {
   transform: none;
