@@ -1,0 +1,300 @@
+/* Giscus.css */
+
+/* ===== 댓글 섹션 컨테이너 ===== */
+.comments-section {
+  margin-top: 80px;
+  padding-top: 48px;
+  border-top: 2px solid var(--border);
+}
+
+/* ===== 댓글 헤더 ===== */
+.comments-header {
+  margin-bottom: 32px;
+}
+
+.comments-title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comments-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.comments-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.comments-title h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* ===== 정보 툴팁 ===== */
+.info-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  margin-left: auto;
+}
+
+.info-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all var(--transition);
+  padding: 0;
+}
+
+.info-icon:hover,
+.info-icon:focus {
+  color: var(--brand);
+  background: var(--brand-dim);
+  transform: scale(1.1);
+  outline: none;
+}
+
+.info-icon svg {
+  display: block;
+}
+
+/* 툴팁 박스 */
+.info-tooltip {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  transform: translateY(-4px);
+}
+
+.info-tooltip.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.info-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--bg-card);
+  filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.05));
+}
+
+.tooltip-content {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  min-width: 220px;
+  max-width: 260px;
+}
+
+.tooltip-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tooltip-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.tooltip-list li {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.tooltip-list li:last-child {
+  margin-bottom: 0;
+}
+
+.tooltip-list li::before {
+  content: '·';
+  position: absolute;
+  left: 6px;
+  color: var(--brand);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.tooltip-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--brand);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--brand-dim);
+  transition: all var(--transition);
+  width: 100%;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.tooltip-link:hover {
+  background: var(--brand);
+  color: white;
+  transform: translateX(2px);
+}
+
+/* ===== 로딩 상태 ===== */
+.giscus-wrapper {
+  width: 100%;
+  max-width: 100%;
+  min-height: 200px;
+  position: relative;
+  transition: all var(--transition);
+  background: transparent !important;
+}
+
+.giscus-wrapper.loading {
+  background: transparent !important;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.giscus-wrapper.loaded {
+  padding: 0;
+  background: transparent !important;
+}
+
+.giscus-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  gap: 16px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--brand);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.giscus-loading p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ===== Giscus iframe 배경 강제 투명화 ===== */
+.giscus-wrapper .giscus {
+  width: 100%;
+  background: transparent !important;
+}
+
+.giscus-wrapper .giscus * {
+  background-color: transparent !important;
+}
+
+.giscus-wrapper iframe.giscus-frame {
+  width: 100% !important;
+  border: none !important;
+  background: transparent !important;
+  color-scheme: light !important;
+}
+
+/* 다크모드에서도 iframe 배경 투명 */
+[data-theme="dark"] .giscus-wrapper iframe.giscus-frame {
+  color-scheme: dark !important;
+  background: transparent !important;
+}
+
+/* Giscus 컨테이너 강제 투명 */
+.giscus-wrapper .giscus > div {
+  background: transparent !important;
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 768px) {
+  .comments-section {
+    margin-top: 60px;
+    padding-top: 32px;
+  }
+
+  .comments-title-wrapper {
+    gap: 8px;
+  }
+
+  .comments-icon {
+    font-size: 1.5rem;
+  }
+
+  .comments-title h2 {
+    font-size: 1.3rem;
+  }
+
+  .giscus-wrapper.loading {
+    padding: 16px;
+  }
+
+  .tooltip-content {
+    min-width: 200px;
+  }
+}
+
+/* ===== 다크모드 추가 스타일 ===== */
+[data-theme="dark"] .loading-spinner {
+  border-color: var(--border);
+  border-top-color: var(--brand-light);
+}
+
+[data-theme="dark"] .tooltip-content {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .info-tooltip::before {
+  filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.3));
+}

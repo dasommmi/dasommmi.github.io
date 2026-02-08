@@ -1,17 +1,18 @@
-import React from "react";
-import { Link, useParams } from "react-router-dom";
-import { usePostBySlug } from "@/hooks/useContentLoader";
+import React from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { usePostBySlug } from '@/hooks/useContentLoader'
+import Giscus from '@/components/comments/Giscus'
 
 const PostDetail: React.FC = () => {
-  const { slug } = useParams<{ slug: string }>();
-  const { Component, meta, loading } = usePostBySlug(slug);
+  const { slug } = useParams<{ slug: string }>()
+  const { Component, meta, loading } = usePostBySlug(slug)
 
   if (loading) {
     return (
       <div className="post-detail">
         <p className="post-detail__loading">포스트를 로드 중입니다...</p>
       </div>
-    );
+    )
   }
 
   return (
@@ -33,8 +34,14 @@ const PostDetail: React.FC = () => {
       <article className="post-detail__body md-content">
         <Component />
       </article>
+      <Giscus
+        repo="dasommmi/dasommmi.github.io"
+        repoId="R_kgDORGCFHQ"
+        category="General"
+        categoryId="DIC_kwDORGCFHc4C2CTN"
+      />
     </div>
-  );
-};
+  )
+}
 
-export default PostDetail;
+export default PostDetail
